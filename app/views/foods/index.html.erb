@@ -2,6 +2,9 @@
 
 <h1>Foods</h1>
 
+ <div class="new_food_wrapper">
+    <%= link_to "Add New Food", new_food_path, class: 'new_food' %>
+  </div>
 <div class="grid-container">
     <div class="grid-item"><strong>Food</strong></div>
     <div class="grid-item"><strong>Measurement Unit</strong></div>
@@ -16,6 +19,4 @@
     <div class="grid-item">Edit | Delete</div>
     <% end %>
   </div>
-  <div class="new_food_wrapper">
-    <%= link_to "Create New Food", new_food_path, class: 'new_food' %>
-  </div>
+ 
