@@ -19,6 +19,41 @@
   height: 100%;
   width: 100%;
 }
+
+* {
+  margin: 0;
+}
+
+nav {
+  background-color: #f2f2f2;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+li > a {
+  text-decoration: none;
+  color: #333;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px;
+}
+
+a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
