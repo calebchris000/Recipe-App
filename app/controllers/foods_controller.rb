@@ -37,7 +37,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     Rails.logger.info("Current food is #{@current_food}")
     if @food.update(food_params)
-      redirect_to foods_path, notice: "Food was successfully updated."
+      redirect_to foods_path
     else
       render :edit
     end
