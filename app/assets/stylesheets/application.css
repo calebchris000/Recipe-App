@@ -162,6 +162,29 @@ button:hover {
   margin: 0 auto;
 }
 
+.last {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.edit_btn,
+.delete_btn {
+  width: 60%;
+  background-color: #55e1fd;
+  color: black;
+  font-weight: 600;
+  padding: 0;
+  height: 2rem;
+  margin: 0;
+  /* display: block; */
+}
+
+.delete_btn {
+    background-color: orangered;
+}
+
 /* CSS for responsive layout */
 @media (max-width: 767px) {
   .grid-container {

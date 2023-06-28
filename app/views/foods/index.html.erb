@@ -16,7 +16,7 @@
     <div class="grid-item"><%= food.measurement_unit%></div>
     <div class="grid-item">$<%= food.price%></div>
     <div class="grid-item"><%= food.quantity%><%=food.measurement_unit.slice(0,1)%></div>
-    <div class="grid-item">Edit | Delete</div>
+    <div class="grid-item last"><%= button_to "Edit", edit_food_path(food.id), method: :get, class: 'edit_btn' %>|<%= button_to "Delete", food_path(food.id), method: :delete, class: 'delete_btn' %></div>
     <% end %>
   </div>
  
