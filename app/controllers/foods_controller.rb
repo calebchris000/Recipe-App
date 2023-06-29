@@ -3,7 +3,8 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
+    # @foods = Food.all
+    @foods = Food.accessible_by(current_ability)
   end
 
   # GET /foods/1 or /foods/1.json
@@ -21,18 +22,14 @@ class FoodsController < ApplicationController
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(food_params)
+    @food = Food.new(food_params.merge(users_id: current_user.id))
 
-    respond_to do |format|
       if @food.save
-        format.html { redirect_to food_url(@food), notice: "Food was successfully created." }
-        format.json { render :show, status: :created, location: @food }
+        redirect_to action: "index", notice: "Food was successfully created." 
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @food.errors, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity
       end
     end
-  end
 
   # PATCH/PUT /foods/1 or /foods/1.json
   def update
@@ -58,13 +55,14 @@ class FoodsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_food
-      @food = Food.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def food_params
-      params.fetch(:food, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_food
+    @food = Food.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def food_params
+    params.require(:food).permit(:id, :name, :measurement_unit, :quantity, :price)
+  end
 end

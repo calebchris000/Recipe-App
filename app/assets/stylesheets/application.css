@@ -12,4 +12,132 @@
  *
  *= require_tree .
  *= require_self
- */
+ 
+ /* Global styles */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+:root {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  width: fit-content;
+  background-color: #dedede;
+  padding: 0.3rem;
+}
+
+/* Sign up form */
+
+.container {
+  width: 30rem;
+  margin: 0 auto;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+form {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input:not([type="checkbox"]) {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ccc;
+}
+
+.checkbox-field {
+  margin: 0 auto;
+}
+
+.checkbox-input {
+  margin-right: 5px;
+}
+
+.checkbox-label {
+  margin-bottom: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 10px;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.grid-item {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+
+.new_food_wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.new_food {
+  border: 2px solid #e6e6e6;
+  background: #f1f1f1;
+  margin: 0 auto;
+}
+
+/* CSS for responsive layout */
+@media (max-width: 767px) {
+  .grid-container {
+    grid-template-columns: auto;
+  }
+}
+
+/* Print styles */
+
+@media print {
+  .container {
+    width: 100%;
+  }
+}
