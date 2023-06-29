@@ -7,11 +7,63 @@ Rails.application.routes.draw do
   get 'recipe_foods/create'
   get 'recipe_foods/edit'
   get 'recipe_foods/destroy'
-  get 'public_recipes/index'
-  resources :recipes
+  resources :recipes do
+    resources :public_recipes
+  end
   resources :users
   resources :foods, except: [:update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
