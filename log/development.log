@@ -346,3 +346,32 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 149ms (Views: 137.4ms | ActiveRecord: 0.0ms | Allocations: 3299)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-29 13:16:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (C:/Users/Admin/Documents/capstone-rails/Recipe-App/app/controllers/foods_controller.rb:4: syntax error, unexpected <<
+<<<<<<< HEAD
+^~
+C:/Users/Admin/Documents/capstone-rails/Recipe-App/app/controllers/foods_controller.rb:24: syntax error, unexpected <<
+<<<<<<< HEAD
+^~
+C:/Users/Admin/Documents/capstone-rails/Recipe-App/app/controllers/foods_controller.rb:28: syntax error, unexpected ===
+=======
+^~~
+C:/Users/Admin/Documents/capstone-rails/Recipe-App/app/controllers/foods_controller.rb:30: syntax error, unexpected >>
+>>>>>>> e2b3c6dd324b4fd019bd2c3...
+^~
+):
+  
+app/controllers/foods_controller.rb:4: syntax error, unexpected <<
+app/controllers/foods_controller.rb:24: syntax error, unexpected <<
+app/controllers/foods_controller.rb:28: syntax error, unexpected ===
+app/controllers/foods_controller.rb:30: syntax error, unexpected >>
+app/controllers/foods_controller.rb:4: syntax error, unexpected <<
+app/controllers/foods_controller.rb:24: syntax error, unexpected <<
+app/controllers/foods_controller.rb:28: syntax error, unexpected ===
+app/controllers/foods_controller.rb:30: syntax error, unexpected >>
+app/controllers/foods_controller.rb:4: syntax error, unexpected <<
+app/controllers/foods_controller.rb:24: syntax error, unexpected <<
+app/controllers/foods_controller.rb:28: syntax error, unexpected ===
+app/controllers/foods_controller.rb:30: syntax error, unexpected >>

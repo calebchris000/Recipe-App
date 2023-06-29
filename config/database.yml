@@ -9,8 +9,8 @@ development:
   <<: *default
   database: Recipe_App_development
   username: postgres
-  password: a110veRJapan
-  port: 5433
+  password: lorna
+  port: 5432
 
 test:
   <<: *default
