@@ -7,7 +7,7 @@ class Ability
     # Define abilities for the user here. For example:
       # cannot :read, Food
       return unless user.present?
-      can :manage, Food, users_id: user
+      can :manage, Food, user_id: user
       # return unless user.admin?
       # can :manage, :all
     # The first argument to `can` is the action you are giving the user

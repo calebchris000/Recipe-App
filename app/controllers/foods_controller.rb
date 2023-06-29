@@ -1,5 +1,4 @@
 class FoodsController < ApplicationController
-  before_action :authenticate_user!
 
   # GET /foods or /foods.json
   def index
@@ -23,7 +22,7 @@ class FoodsController < ApplicationController
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(food_params.merge(users_id: current_user.id))
+    @food = Food.new(food_params.merge(user_id: current_user.id))
 
     if @food.save
       redirect_to action: "index", notice: "Food was successfully created."
