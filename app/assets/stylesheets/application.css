@@ -83,7 +83,7 @@ a {
   gap: 10px;
 }
 form {
-  width: 100%;
+  /* width: 100%; */
   margin: 1rem auto;
 }
 
@@ -182,7 +182,7 @@ button:hover {
 }
 
 .delete_btn {
-    background-color: orangered;
+  background-color: orangered;
 }
 
 .one {
@@ -195,6 +195,56 @@ button:hover {
   margin: 30px 0;
   display: flex;
   padding: 10px;
+}
+
+.recipe-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10rem;
+}
+
+.recipe_info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.recipe-details p {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.second_table_recipes {
+  margin: 0 10rem;
+}
+
+.button_action {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0;
+}
+
+.button_to {
+  /* margin: 0; */
+  /* width: 100%; */
+  padding: 0;
+}
+.button_action button {
+  display: block;
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.grid-item2 {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
 }
 
 /* CSS for responsive layout */

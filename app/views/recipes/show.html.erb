@@ -1,29 +1,44 @@
-<div class="recipe-details">
   <h2><%= @recipe.name %></h2>
-  <div class="">
+<div class="recipe-details">
+  <div class="recipe_info">
     <p>Preparation time: <%= @recipe.preparation_time %> hours</p>
     <p>Cooking time: <%= @recipe.cooking_time %> hours</p>
     <p><%= @recipe.description %></p>
   </div>
+  <div class="public_boolean">
+  <%= button_tag class: 'toggle-button', data: { toggled: @toggle_status } do %>
+  <% if @toggle_status %>
+    Turn Off
+  <% else %>
+    Turn On
+  <% end %>
+<% end %>
+  </div>
 </div>
 
-<div>
-  <div>
-    <p>Generate shopping list</p>
-    <p>Add ingredient</p>
+<div class="second_table_recipes">
+  <div class="button_action">
+  <%= button_to "Generate Shopping List", recipe_path%>
+ <%= button_to "Add Ingredient", new_food_recipe_path, method: :get, class: "button" %>
+
   </div>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <td>Food</td>
-          <td>Quantity</td>
-          <td>Value</td>
-          <td>Actions</td>
-        </tr>
-      </thead>
-    </table>
+  
+  <div class="grid-container2">
+    <div class="grid-item2"><strong>Food</strong></div>
+    <div class="grid-item2"><strong>Unit Price</strong></div>
+    <div class="grid-item2"><strong>Quantity</strong></div>
+    <div class="grid-item2"><strong>Actions</strong></div>
+    <% if @foods.empty?%>
+    <% else %>
+    <% @foods.each do |food| %>
+    <div class="grid-item2"><%= food.name%></div>
+    <div class="grid-item2">$<%= food.price%></div>
+    <div class="grid-item2"><%= food.quantity%><%=food.measurement_unit%></div>
+    <div class="grid-item2 last"><%= button_to "Edit", edit_food_path(food.id), method: :get, class: 'edit_btn' %>|<%= button_to "Delete", food_path(food.id), method: :delete, class: 'delete_btn' %></div>
+    <% end %>
+    <% end %>
   </div>
+
 </div>
 <div>
   <%= link_to "Back to recipes", recipes_path %>
