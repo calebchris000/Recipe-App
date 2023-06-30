@@ -247,6 +247,39 @@ button:hover {
   text-align: center;
 }
 
+.grid-container3 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.grid-item3 {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+
+.shopping_list {
+  margin: 2rem 10rem;
+}
+
+.shopping_list_text {
+  text-align: center;
+} 
+
+.things_to_buy {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.things_to_buy p {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
 /* CSS for responsive layout */
 @media (max-width: 767px) {
   .grid-container {

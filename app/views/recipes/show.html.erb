@@ -18,7 +18,7 @@
 
 <div class="second_table_recipes">
   <div class="button_action">
-  <%= button_to "Generate Shopping List", recipe_path%>
+  <%= button_to "Generate Shopping List", general_shopping_list_path(recipe_id: :id), method: :get%>
  <%= button_to "Add Ingredient", new_food_recipe_path, method: :get, class: "button" %>
 
   </div>

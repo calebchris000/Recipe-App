@@ -1,14 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Food recipes</h1>
-
-<div id="food_recipes">
-  <% @food_recipes.each do |food_recipe| %>
-    <%= render food_recipe %>
-    <p>
-      <%= link_to "Show this food recipe", food_recipe %>
-    </p>
-  <% end %>
+<section class="shopping_list">
+<h1 class="shopping_list_text">Shopping List</h1>
+<div class="things_to_buy">
+<p>Amount of Food Items to buy: <%= @food_count%></p>
+<p>Total Vaue of Food Needed: $<%= @food_cost%></p>
 </div>
-
-<%= link_to "New food recipe", new_food_recipe_path %>
+<div class="grid-container3">
+    <div class="grid-item3"><strong>Food</strong></div>
+    <div class="grid-item3"><strong>Unit Price</strong></div>
+    <div class="grid-item3"><strong>Quantity</strong></div>
+    <% if @foods.empty?%>
+    <% else %>
+    <% @foods.each do |food| %>
+    <div class="grid-item3"><%= food.name%></div>
+    <div class="grid-item3">$<%= food.price%></div>
+    <div class="grid-item3"><%= food.quantity%><%=food.measurement_unit%></div>
+    <% end %>
+    <% end %>
+  </div>
+</section>

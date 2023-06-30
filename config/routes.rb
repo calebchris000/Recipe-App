@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :foods, except: [:update]
   get 'recipes/:id/food_recipes/new', to: 'food_recipes#new', as: 'new_food_recipe'
   post 'recipes/:id/food_recipes/', to: 'food_recipes#create', as: 'food_recipes'
+  get 'general_shopping_list', to: 'food_recipes#index', as: 'general_shopping_list'
   # get 'recipes#show', to: 'recipe_foods/index', as: 'recipie_foods'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")

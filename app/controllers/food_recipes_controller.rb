@@ -3,7 +3,9 @@ class FoodRecipesController < ApplicationController
 
   # GET /food_recipes or /food_recipes.json
   def index
-    @food_recipes = FoodRecipe.all
+   @foods = Food.joins(:food_recipes).where(user_id: current_user.id)
+   @food_count = @foods.length
+   @food_cost = @foods.sum(:price)
   end
 
   # GET /food_recipes/1 or /food_recipes/1.json
