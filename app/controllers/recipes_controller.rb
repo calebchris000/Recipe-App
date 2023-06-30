@@ -5,11 +5,16 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(user_id: current_user.id)
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @foods = Food.joins(:food_recipes).where(food_recipes: { recipe_id: params[:id] }).where(user_id: current_user.id)
+  rescue ActiveRecord::RecordNotFound
+    # Catch the error if the record is not found and return an empty array
+    @foods = []
+  end
 
   # GET /recipes/new
   def new
@@ -21,11 +26,13 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
-
+    @create_recipe = recipe_params.merge(user_id: current_user.id)
+    # @modify_public = params[:recipe][:public] = recipe_params[:public].to_i.zero? ? false : true
+    @recipe = Recipe.new(recipe_params.merge(user_id: current_user.id))
+    @recipe[:public] = @recipe[:public] == "0" ? false : true
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
+        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully created." }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +45,7 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,8 +59,20 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to recipes_url, notice: "Recipe was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def toggle_action
+    @recipe = Recipe.find(params[:id])
+    @toggle_status = @recipe[:public]
+    @toggle_status = !@toggle_status
+    @recipe[:public] = @toggle_status
+    if @recipe.save
+      redirect_to recipe_path
+    # else
+    #   render :show, notice: "An error occured"
     end
   end
 
@@ -66,6 +85,6 @@ class RecipesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_params
-    params.fetch(:recipe, {})
+    params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end
