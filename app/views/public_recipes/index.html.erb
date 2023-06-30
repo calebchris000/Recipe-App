@@ -5,7 +5,7 @@
       <p>No public recipes available.</p>
     <% else %>
       <% @recipes.each do |recipe| %>
-        <%= render partial: 'public_recipe_card', locals: { recipe: recipe } %>
+        <p><%= recipe.name%></p>
       <% end %>
     <% end %>
   </div>
