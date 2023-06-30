@@ -6,11 +6,11 @@
     <p><%= @recipe.description %></p>
   </div>
   <div class="public_boolean">
-  <%= button_tag class: 'toggle-button', data: { toggled: @toggle_status } do %>
-  <% if @toggle_status %>
-    Turn Off
+  <%= button_to toggle_action_path(id: @recipe.id), method: :put, class: 'toggle-button' do %>
+  <% if @recipe[:public] %>
+    Toggle Off
   <% else %>
-    Turn On
+    Toggle On
   <% end %>
 <% end %>
   </div>

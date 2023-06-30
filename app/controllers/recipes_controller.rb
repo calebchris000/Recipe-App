@@ -26,8 +26,10 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
+    @create_recipe = recipe_params.merge(user_id: current_user.id)
+    # @modify_public = params[:recipe][:public] = recipe_params[:public].to_i.zero? ? false : true
     @recipe = Recipe.new(recipe_params.merge(user_id: current_user.id))
-    Rails.logger.info("IWHJDH #{@recipe}")
+    @recipe[:public] = @recipe[:public] == "0" ? false : true
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully created." }
@@ -62,6 +64,18 @@ class RecipesController < ApplicationController
     end
   end
 
+  def toggle_action
+    @recipe = Recipe.find(params[:id])
+    @toggle_status = @recipe[:public]
+    @toggle_status = !@toggle_status
+    @recipe[:public] = @toggle_status
+    if @recipe.save
+      redirect_to recipe_path
+    # else
+    #   render :show, notice: "An error occured"
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -71,6 +85,6 @@ class RecipesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
+    params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end
