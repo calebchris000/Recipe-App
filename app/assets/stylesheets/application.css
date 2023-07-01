@@ -205,7 +205,6 @@ h1 {
   justify-content: space-between;
 }
 
-
 .recipe-details {
   display: flex;
   justify-content: space-between;
@@ -277,13 +276,11 @@ h1 {
 }
 
 .odd-row {
-  background-color: #ffffff; /* Set the background color for odd rows */
+  background-color: #fff; /* Set the background color for odd rows */
 }
-
 
 .content:nth-child(even) {
   display: flex;
-
   background-color: #ebe8e8;
   padding: 10px;
   text-align: center;
