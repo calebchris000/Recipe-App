@@ -12,9 +12,10 @@
  *
  *= require_tree .
  *= require_self
- 
+
  /* Global styles */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+
 :root {
   height: 100%;
   width: 100%;
@@ -37,9 +38,12 @@ ul {
   padding: 0;
 }
 
-li {
-  display: inline-block;
-  margin-right: 10px;
+a {
+  text-decoration: none;
+  color: black;
+  width: fit-content;
+  background-color: #dedede;
+  padding: 0.3rem;
 }
 
 li > a {
@@ -54,18 +58,15 @@ a:hover {
   color: #fff;
 }
 
+li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  width: fit-content;
-  background-color: #dedede;
-  padding: 0.3rem;
 }
 
 /* Sign up form */
@@ -82,8 +83,9 @@ a {
   align-items: center;
   gap: 10px;
 }
+
 form {
-  width: 100%;
+  /* width: 100%; */
   margin: 1rem auto;
 }
 
@@ -145,7 +147,7 @@ button:hover {
 }
 
 .grid-item {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 10px;
   text-align: center;
 }
@@ -178,24 +180,143 @@ button:hover {
   padding: 0;
   height: 2rem;
   margin: 0;
+
   /* display: block; */
 }
 
 .delete_btn {
-    background-color: orangered;
+  background-color: orangered;
 }
 
-/* CSS for responsive layout */
-@media (max-width: 767px) {
-  .grid-container {
-    grid-template-columns: auto;
-  }
+.one {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-/* Print styles */
+.a {
+  border: 2px solid;
+  margin: 30px 0;
+  display: flex;
+  padding: 10px;
+}
 
-@media print {
-  .container {
-    width: 100%;
-  }
+.a p {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.recipe-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10rem;
+}
+
+.recipe_info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.recipe-details p {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.second_table_recipes {
+  margin: 0 10rem;
+}
+
+.button_action {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0;
+}
+
+.button_to {
+  /* margin: 0; */
+
+  /* width: 100%; */
+  padding: 0;
+}
+
+.button_action button {
+  display: block;
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.grid-item2 {
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.grid-container3 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.grid-item3 {
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.shopping_list {
+  margin: 2rem 10rem;
+}
+
+.shopping_list_text {
+  text-align: center;
+}
+
+.things_to_buy {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.things_to_buy p {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.recipe-form {
+  margin-left: 10rem;
+}
+
+.field_action {
+  margin-left: 2rem;
+  width: 30%;
+}
+
+.recipe-header {
+  margin-left: 2rem;
+}
+
+.recipe-form-wrapper {
+  width: 30rem;
+  margin: 0 auto;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.button_action a {
+  margin-left: 2rem;
 }
