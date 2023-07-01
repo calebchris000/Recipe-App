@@ -76,7 +76,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd your_desired_folder
-  git clone https://github.com/MohamedHNoor/recipe-app.git
+  git clone https://github.com/calebchris000/Recipe-app.git
 ```
 
 ### Install
@@ -132,7 +132,7 @@ To run the project, execute the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/MohamedHNoor/recipe-app/issues)
+Feel free to check the [issues page](https://github.com/calebchris000/recipe-app/issues)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
