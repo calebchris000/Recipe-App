@@ -1,9 +1,9 @@
-<div>
-  <h1>Recipes</h1>
+<div class="container">
+  <h1 class="recipe-header">Recipes</h1>
 
   <div id="recipes">
     <% if @recipes.empty? %>
-      <p class="">No recipes available! </p>
+      <p class="recipe-paragraph">No recipes available! </p>
     <% else %>
       <% @recipes.each do |recipe| %>
         <div class="a">

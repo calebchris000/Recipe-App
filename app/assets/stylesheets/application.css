@@ -286,6 +286,37 @@ button:hover {
   font-size: 1.4rem;
 }
 
+.recipe-form {
+  margin-left: 10rem;
+}
+
+.field {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.field_action {
+  margin-left: 2rem;
+  width: 30%;
+}
+
+.container {
+  width: 30rem;
+  margin: 0 auto;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.recipe-header {
+  margin-left: 2rem;
+}
+
 /* CSS for responsive layout */
 @media (max-width: 767px) {
   .grid-container {

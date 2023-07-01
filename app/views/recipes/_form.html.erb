@@ -1,6 +1,6 @@
 <%= form_with(model: recipe) do |form| %>
   <% if recipe.errors.any? %>
-    <div>
+    <div class="recipe-form">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
       <ul>
@@ -31,7 +31,7 @@
     <%= form.label :public %>
     <%= form.check_box :public %>
   </div>
-  <div>
+  <div class="field-actions">
     <%= form.submit %>
   </div>
-<% end %>
+<% end %> 
