@@ -285,7 +285,7 @@ DEPENDENCIES
   cancancan
   capybara
   debug
-  devise
+  devise (~> 4.9, >= 4.9.2)
   importmap-rails
   jbuilder
   jquery-rails (~> 4.6)
