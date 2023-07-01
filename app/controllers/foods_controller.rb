@@ -27,7 +27,7 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params.merge(user_id: current_user.id))
 
     if @food.save
-      redirect_to action: "index"
+      redirect_to action: 'index'
     else
       render :new, status: :unprocessable_entity
     end

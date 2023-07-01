@@ -30,10 +30,10 @@ class RecipesController < ApplicationController
     @create_recipe = recipe_params.merge(user_id: current_user.id)
     # @modify_public = params[:recipe][:public] = recipe_params[:public].to_i.zero? ? false : true
     @recipe = Recipe.new(recipe_params.merge(user_id: current_user.id))
-    @recipe[:public] = @recipe[:public] == "0" ? false : true
+    @recipe[:public] = @recipe[:public] != '0'
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipes_path, notice: "Recipe was successfully created." }
+        format.html { redirect_to recipes_path, notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipes_path, notice: "Recipe was successfully destroyed." }
+      format.html { redirect_to recipes_path, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,11 +70,11 @@ class RecipesController < ApplicationController
     @toggle_status = @recipe[:public]
     @toggle_status = !@toggle_status
     @recipe[:public] = @toggle_status
-    if @recipe.save
-      redirect_to recipe_path
+    return unless @recipe.save
+
+    redirect_to recipe_path
     # else
     #   render :show, notice: "An error occured"
-    end
   end
 
   private
