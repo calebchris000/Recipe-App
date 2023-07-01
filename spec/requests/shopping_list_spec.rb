@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'ShoppingLists', type: :request do
   include Devise::Test::IntegrationHelpers
   before :each do
-    @user = User.create(name: "Caleb Nwaizu", email: "calebchris000@gmail.com", password: 111111)
+    @user = User.create(name: 'Caleb Nwaizu', email: 'calebchris000@gmail.com', password: 111_111)
     sign_in @user
   end
 
