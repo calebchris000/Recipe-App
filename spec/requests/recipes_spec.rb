@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 require 'devise'
 RSpec.describe 'Recipe', type: :request do
@@ -36,7 +34,7 @@ RSpec.describe 'Recipe', type: :request do
   describe 'POST /create' do
     it 'creates a new recipe' do
       post recipes_path,
-           params: { recipe: { name: "My mama's recipe", description: 'Good recipe!', preparation_time: 1, cooking_time: 2,
+           params: { recipe: { name: "My mama's recipe", description: 'Food!', preparation_time: 1, cooking_time: 2,
                                public: false } }
       expect(response).to redirect_to(recipes_path)
     end

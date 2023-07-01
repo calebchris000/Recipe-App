@@ -1,12 +1,7 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
-gem 'cancancan'
-gem 'devise'
 gem 'letter_opener', group: :development
-gem 'rails-controller-testing'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.5'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -40,7 +35,6 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails'
 end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -53,9 +47,13 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+gem 'cancancan'
+gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'jquery-rails', '~> 4.6'
 gem 'rails-ujs', '~> 0.1.0'
 gem 'rubocop', '>= 1.0', '< 2.0'
