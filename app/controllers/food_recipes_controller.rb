@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class FoodRecipesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_food_recipe
