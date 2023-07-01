@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
@@ -32,7 +33,7 @@ class RecipesController < ApplicationController
     @recipe[:public] = @recipe[:public] == "0" ? false : true
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully created." }
+        format.html { redirect_to recipes_path, notice: "Recipe was successfully created." }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -59,7 +60,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: "Recipe was successfully destroyed." }
+      format.html { redirect_to recipes_path, notice: "Recipe was successfully destroyed." }
       format.json { head :no_content }
     end
   end

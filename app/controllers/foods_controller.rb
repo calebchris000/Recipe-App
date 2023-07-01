@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
 
   # GET /foods or /foods.json
   def index
@@ -26,7 +27,7 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params.merge(user_id: current_user.id))
 
     if @food.save
-      redirect_to action: "index", notice: "Food was successfully created."
+      redirect_to action: "index"
     else
       render :new, status: :unprocessable_entity
     end
@@ -48,7 +49,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @food.destroy
 
-    redirect_to foods_path
+    redirect_to root_path
   end
 
   private
