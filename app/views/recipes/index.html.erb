@@ -9,12 +9,7 @@
         <div class="a">
           <div class="one">
             <%= recipe.name %>
-            <% if can? :delete, recipe %>
-              <%= button_to "Destroy this recipe", recipe, method: :delete %>
-            <% end %>
-            <p>
-            <%= link_to "Show", recipe %>
-          </p>
+              <%= button_to "Destroy this recipe", recipe_path(recipe), method: :delete %>
             </div>
             
           <div>

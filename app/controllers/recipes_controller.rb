@@ -54,7 +54,12 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
-    @recipe.destroy
+    @food_recipe = FoodRecipe.find_by(recipe_id: @recipe.id)
+    if @food_recipe
+      @food_recipe.destroy
+    end
+    @recipe.destroy!
+    
 
     respond_to do |format|
       format.html { redirect_to recipes_path, notice: 'Recipe was successfully destroyed.' }
