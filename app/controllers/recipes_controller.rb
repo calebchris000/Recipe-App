@@ -1,6 +1,5 @@
-# The RecipesController handles CRUD operations for managing food resources.
-# It inherits from the ApplicationController and includes common functionality
-# for authentication, authorization, and resource loading.
+# frozen_string_literal: true
+
 class RecipesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
@@ -31,11 +30,14 @@ class RecipesController < ApplicationController
     @create_recipe = recipe_params.merge(user_id: current_user.id)
     # @modify_public = params[:recipe][:public] = recipe_params[:public].to_i.zero? ? false : true
     @recipe = Recipe.new(recipe_params.merge(user_id: current_user.id))
-    @recipe[:public] = @recipe[:public] != '0'
-    if @recipe.save
-      redirect_to recipes_path
-    else
-      render :new, status: :unprocessable_entity
+    @recipe[:public] = @recipe[:public] != "0"
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to recipes_path, notice: "Recipe was successfully created." }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -43,7 +45,7 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +59,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipes_path, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to recipes_path, notice: "Recipe was successfully destroyed." }
       format.json { head :no_content }
     end
   end
